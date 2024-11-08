@@ -36,3 +36,43 @@ footer {
 .right-sidebar {
   padding: 1rem;  
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin: 0 auto 2rem;
+  max-width: 90vw;
+}
+
+.modern a {
+  flex: 1 1 100%;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  background-color: #333;
+  align-items: center;
+}
+
+.navigation a {
+  display: block;
+  color: #eee;
+  padding: 0.75rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navigation a:hover {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
