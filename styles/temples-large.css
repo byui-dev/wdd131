@@ -1,0 +1,22 @@
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    main {
+        max-width: 600px;
+        padding: 20px;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    /* Media query for desktops and larger screens */
+    @media (min-width: 1200px) {
+        main {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
