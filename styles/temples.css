@@ -1,10 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary-bg: #36454f;
+    --primary-text: #fff;
+    --hover-text: yellow;
+    --header-bg: #bbb;
 }
 
-body, h1, p, ul {
+header {
+    background-color: var(--header-bg);
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+nav {
+    background-color: var(--primary-bg);
+}
+
+nav a {
+    color: var(--primary-text);
+}
+
+.active {
+    color: var(--hover-text)
+}
+
+body,
+h1,
+p,
+ul {
     margin: 0;
     padding: 0;
 }
@@ -16,13 +41,11 @@ body {
     background-color: #f4f4f4;
 }
 
-.gallery {
+.album {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3,1fr);
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: margin 0 auto;
 }
 
 figure {
@@ -32,6 +55,7 @@ figure {
     overflow: hidden;
     text-align: center;
     box-shadow: 0 2px 5x rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 figure img {
@@ -109,3 +133,30 @@ nav a:hover {
 .active {
     color: yellow;
 }
+
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+    main {
+        max-width: 80%;
+    }
+
+    .album {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 480px) {
+     .album {
+        grid-template-columns: 1fr;
+
+     }
