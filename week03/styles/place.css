@@ -1,22 +1,104 @@
+/ * General Styles */
+body {
+  margin: 0;
+  font family: Roboto, sans-serif;    
+}
+
+/ * Header Styling * /
+header {
+background-color: #333;
+padding: 20px;
+margin-bottom: 20px;
+border-bottom: 5px solid #444;  
+}
+
+.header-content h1 {
+  color: white;
+  margin: 0;
+  padding: 10px;
+  border: 2px solid #555;
+  background-color: #444;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/ * Footer Styling* /
+footer {
+  background-color: #333;
+  padding: 10px;
+  border-top: 5px solid #444; 
+}
+
+.footer-content {
+  color: white;
+  text-align: center;
+}
+
+/* Hero Section Styling*/
 .hero {
-    position: relative;
-    text-align: center;
-    color:cadetblue;
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 20px auto;
+  border: 5px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero img {
-    width: 100%;
-    height: auto;
+.hero {
+  background-image: url('images/cape-town.jpg.webp');
 }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  border-radius: 10px;
-  
+/ * Cards Styling */
+.hero-content {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+}
+
+.card {
+  background-color: white;
+  border: 2px solid #ddd;
+  padding: 20px;
+  width: 25%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px; 
+}
+
+.card h2 {
+  margin-top: 0;
+  padding: 10px;
+  border: 2px solid #f2f2f2;
+  background-color: #f7f7f7;
+  text-align: center;
+  color: #333
+}
+
+.left-card {
+  margin-right: 10px;
+}
+
+.right-card {
+  margin-left: 10px;
+ }
+ 
+/ * Add responsive design for smaller screens */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;  
+  }
+ 
+  .hero {
+      background-image: url('images/cape-town.jpg(2).webp');
+    }
+
+  .card {
+    width: 90%;
+    margin: 10px 0;
+    
+  }
 }
