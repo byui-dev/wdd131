@@ -102,10 +102,10 @@ temples.forEach(temple => {
    
 // Add the building's information
 card.innerHTML = `
-   <h2></h2>
-   <p></p>
-   <p></p>
-   <p></p>
+   <h2>${temple.templeName}</h2>
+   <p><strong>Location:</strong> ${temple.location}</p>
+   <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
+   <p><strong>Size:</strong> ${temple.area}</p>
    <img scr="${temple.imageUrl}" alt="${temple.name}">
    `;
 
