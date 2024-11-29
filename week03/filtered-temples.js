@@ -1,13 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Set current year
-    const currentYear = new Date().getFullYear();
-    document.getElementById('year').textContent = currentYear;
-
-    // Set last modified date
-    const lastModifiedDate = document.lastModified;
-    document.getElementById('lastModified').textContent = `Last Updated: ${lastModifiedDate}`;
-});
-
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -112,4 +102,14 @@ card.innerHTML = `
    // Append the card to the container
    cardContainer.appendChild(card);
 });  
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Set current year
+    const currentYear = new Date().getFullYear();
+    document.getElementById('year').textContent = currentYear;
+
+    // Set last modified date
+    const lastModifiedDate = document.lastModified;
+    document.getElementById('lastModified').textContent = `Last Updated: ${lastModifiedDate}`;
+});
    
