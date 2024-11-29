@@ -92,5 +92,14 @@ const temples = [
     },
 ];
 
-console.log(temples);
+// Get the container where cards will be displayed
+const cardContainer = document.getElementById('cardContainer');
+
+// Loop through the array of buildings and create cards
+temples.forEach(temple => {
+   const card = document.createElement('div');
+   card.className = 'card';
+   
+// Add the building's information
+card.innerHTML = `   
 
