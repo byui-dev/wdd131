@@ -101,5 +101,15 @@ temples.forEach(temple => {
    card.className = 'card';
    
 // Add the building's information
-card.innerHTML = `   
+card.innerHTML = `
+   <h2></h2>
+   <p></p>
+   <p></p>
+   <p></p>
+   <img scr="${temple.imageUrl}" alt="${temple.name}">
+   `;
 
+   // Append the card to the container
+   cardContainer.appendChild(card);
+});  
+   
