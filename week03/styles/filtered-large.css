@@ -41,13 +41,6 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Main content */
-main {
-    padding: 2rem;
-    background: #f4f4f4;
-    min-height: 400px;
-}
-
 /* Footer styles */
 footer {
     background: #333;
