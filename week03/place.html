@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South Africa</title>
     <script src="place.js" defer></script>
-    <link type="text/css" rel="stylesheet" href="styles/place.css">
+    <link type="text/css" rel="stylesheet" href="styles/mobileview.css">
+    <link type="text/css" rel="stylesheet" href="styles/largeview.css">
 </head>
-
 <body>
-  <header>
+  <header class="dark green">
     <h1>South Africa</h1>
   </header>
   <main>
@@ -40,12 +40,13 @@
           <p>Temperature:29°C</p>
           <p>Conditions:Sunny</p>
           <p>Wind:10km/h</p>
-          <p>Wind Chill:   </p>
+          <p>Wind Chill: <span id="windChill">Calculating...</span></p>
+
          </div>
       </div>
       </main>
 </body>
-<footer>
+<footer class="dark green">
     <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
     <p id="lastModified"></p>
 </footer>

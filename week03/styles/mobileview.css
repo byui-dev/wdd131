@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+/* Header Styling */
+header {
+    background-color: #004d00;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #004d00;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    height: 400px;
+    background-image: url('images/cape-town.jpg(2).webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cards Styling */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.card {
+    background-color: white;
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
