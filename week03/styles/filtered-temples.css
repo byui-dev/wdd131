@@ -1,129 +1,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
   font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  line-height: 1.6;
 }
 
 h1 {
-  font-weight: 100;
-
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
-
-      /* Header styles */
-      header {
-          background: #333;
-          color: #fff;
-          padding: 1rem;
-          text-align: center;
-      }
-
-      /* Navigation menu styles */
-      nav {
-          margin-top: 1rem;
-      }
-
-      nav ul {
-          list-style: none;
-          padding: 0;
-      }
-
-      nav ul li {
-          display: inline; /* Horizontal layout */
-          margin: 0 15px;
-      }
-
-      nav ul li a {
-          text-decoration: none;
-          color: #fff;
-          font-weight: bold;
-      }
-
-      nav ul li a:hover {
-          text-decoration: underline;
-      }
-
-      /* Main content */
-      main {
-          padding: 2rem;
-          background: #f4f4f4;
-          min-height: 400px;
-      }
-
-      /* Footer styles */
-      footer {
-          background: #333;
-          color: #fff;
-          text-align: center;
-          padding: 1rem;
-      }
-
-
-
-/* Footer styles */
-footer {
+/* Header styles */
+header {
   background: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation menu styles */
+nav {
+  margin-top: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0.5rem 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main content */
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Temple Card Styles */
+.temple-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.temple-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.temple-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.temple-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.temple-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.temple-info p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
   color: #fff;
   text-align: center;
   padding: 1rem;
+  font-size: 0.9rem;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
-
-.card {
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  max-width: 400px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 5px;
-  loading: lazy;
-}
-
-.card h2 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.card p {
-  font-size: 0.875rem;
-  margin: 5px 0;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-}
-
-
+/* Responsive Design */
 @media (min-width: 768px) {
   .card-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .card {
-    width: calc(33% - 20px);
+@media (min-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
