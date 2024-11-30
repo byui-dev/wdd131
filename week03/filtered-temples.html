@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temple Album</title>
-    <!-- Base Styles (Mobile First) -->
+    
+    <!-- Mobile-First Styles -->
     <link rel="stylesheet" href="styles/filtered-temples.css" media="only screen and (max-width: 768px)">
+    
     <!-- Large Screen Styles -->
     <link rel="stylesheet" href="styles/filtered-large.css" media="only screen and (min-width: 769px)">
-
 </head>
-
 <body>
     <header>
         <h1>Temple Album</h1>
-        <nav>
+        <nav aria-label="Temple Category Navigation">
             <ul>
-                <li><a href="#Home" class="active">Home</a></li>
-                <li><a href="#Old">Old</a></li>
-                <li><a href="#New">New</a></li>
-                <li><a href="#Large">Large</a></li>
-                <li><a href="#Small">Small</a></li>
+                <li><a href="#" data-filter="home" class="active">Home</a></li>
+                <li><a href="#" data-filter="old">Old</a></li>
+                <li><a href="#" data-filter="new">New</a></li>
+                <li><a href="#" data-filter="large">Large</a></li>
+                <li><a href="#" data-filter="small">Small</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="card-container" id="cardContainer">
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg" alt="Aba Nigeria Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg" alt="Manti Utah Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg" alt="Payson Utah Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg " alt="Yigo Guam" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg" alt="Washington DC Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg" alt="Lima Peru Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg" alt="Mexico City Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/anchorage-alaska/400x250/anchorage-temple-lds-746769-wallpaper.jpg" alt="Anchorage Alaska Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/johannesburg-south-africa/400x250/johannesburg-south-africa-temple-lds-83166-wallpaper.jpg" alt="Johannesburg South Africa Temple" loading="lazy">    
-        <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bountiful-utah/400x250/bountiful-temple-766347-wallpaper.jpg" alt="Bountiful Utah Temple" loading="lazy">    
+            <!-- Temple cards will be dynamically inserted here by JavaScript -->
         </div>
     </main>
+
     <footer>
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
         <p id="lastModified"></p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="filtered-temples.js" defer></script>
 </body>
-
 </html>
