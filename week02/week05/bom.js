@@ -41,7 +41,30 @@ function displayList(item) {
         input.focus(); // set the focus back to the input
     });
     console.log('I like to copy code instead of typing it out myself and trying to understand it.');
-}      
+   }      
+
+       setChapterList()
+      
+         function setChapterList() {
+  localStorage.setItem('myFavBOMList',JSON.stringify(chaptersArray));
+}        
+
+      getChapterList()
+    
+   function getChapterList(){
+    return JSON.parse(localStorage.getItem('myFavBOMList'));
+   }  
+
+
+     deleteChapter()
+
+   function deleteChapter(chapter) {
+   chapter = chapter.slice(0, chapter.length - 1);
+   chaptersArray = chaptersArray.filter(item => item !== chapter);
+   setChapterList(); 
+}  
+
+
 
 
 
