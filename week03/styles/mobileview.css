@@ -32,18 +32,13 @@ footer {
 .hero {
     position: relative;
     height: 400px;
+    background-image: url('images/cape-town.jpg.webp');
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.hero {
-    background-image: url('images/cape-town.jpg.webp');
-    background-size: cover;
-    background-position: center;
 }
 
 /* Hero Content Styling */
