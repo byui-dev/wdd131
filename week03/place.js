@@ -1,29 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Set current year
-    const currentYear = new Date().getFullYear();
-    document.getElementById('year').textContent = currentYear;
+// place.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Set current year in footer
+    const yearSpan = document.getElementById('year');
+    yearSpan.textContent = new Date().getFullYear();
 
     // Set last modified date
-    const lastModifiedDate = document.lastModified;
-    document.getElementById('lastModified').textContent = `Last Updated: ${lastModifiedDate}`;
+    const lastModifiedSpan = document.getElementById('lastModified');
+    lastModifiedSpan.textContent = `Last Modified: ${document.lastModified}`;
 
-    // Wind Chill Calculation
-    const temperature = 29; // Replace with actual temperature value if available dynamically
-    const windSpeed = 10; // Replace with actual wind speed value if available dynamically
+    // Wind Chill Calculation (if needed)
+    const temperature = 29; // from HTML
+    const windSpeed = 10; // from HTML
+    const windChillSpan = document.getElementById('windChill');
 
-    function calculateWindChill(temp, speed) {
-        if (temp <= 10 && speed > 4.8) { // Conditions for wind chill calculation
-            return (
-                13.12 +
-                0.6215 * temp -
-                11.37 * Math.pow(speed, 0.16) +
-                0.3965 * temp * Math.pow(speed, 0.16)
-            ).toFixed(1);
-        } else {
-            return "N/A";
-        }
+    // Simple wind chill calculation
+    if (temperature <= 50 && windSpeed > 3) {
+        const windChill = 35.74 + (0.6215 * temperature) -
+            (35.75 * Math.pow(windSpeed, 0.16)) +
+            (0.4275 * temperature * Math.pow(windSpeed, 0.16));
+        windChillSpan.textContent = `${Math.round(windChill)}°C`;
+    } else {
+        windChillSpan.textContent = 'Not Applicable';
     }
-
-    const windChill = calculateWindChill(temperature, windSpeed);
-    document.getElementById('windChill').textContent = windChill !== "N/A" ? `${windChill}°C` : windChill;
 });

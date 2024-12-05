@@ -2,6 +2,8 @@
 body {
     margin: 0;
     font-family: Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* Header Styling */
@@ -30,7 +32,6 @@ footer {
 .hero {
     position: relative;
     height: 400px;
-    background-image: url('images/cape-town.jpg(2).webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -39,7 +40,13 @@ footer {
     justify-content: center;
 }
 
-/* Cards Styling */
+.hero {
+    background-image: url('images/cape-town.jpg.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Hero Content Styling */
 .hero-content {
     display: flex;
     flex-direction: column;
@@ -47,6 +54,7 @@ footer {
     width: 90%;
 }
 
+/* Cards Styling */
 .card {
     background-color: white;
     border: 2px solid #ddd;
@@ -62,4 +70,24 @@ footer {
     margin: 0 0 10px;
     font-size: 1.2rem;
     color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media screen and (min-width: 768px) {
+    .hero {
+        height: 500px;
+    }
+
+    .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 30%;
+    }
 }

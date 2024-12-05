@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +9,41 @@
     <link type="text/css" rel="stylesheet" href="styles/largeview.css">
 </head>
 <body>
-  <header class="dark green">
-    <h1>South Africa</h1>
-  </header>
-  <main>
-    <section class="hero">
-        <div class="hero-content">
-          <div class="card left-card">
-            <h2>Data</h2>
-            <p>Population: 62 million</p>
-            <p>Capital:Pretoria, Cape Town, Bloemfontein</p>
-            <p>Languages:English, Setswana, Afrikaans, Sesotho, isiZulu, isiXhosa, isiNdebele, Sepedi, isiSwati, TshiVenda, Tsonga</p>
-            <p>Currency:South African Rand</p>
-            <p>Time Zone:GMT+2</p>
-            <p>Calling Code:+27</p>
-            <p>International TLD:co.za</p>
-            <p>Area:1,221,037 square kilometres (471,445 square miles</p>
+    <header class="dark green">
+        <h1>South Africa</h1>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="card left-card">
+                    <h2>Data</h2>
+                    <p>Population: 62 million</p>
+                    <p>Capital: Pretoria, Cape Town, Bloemfontein</p>
+                    <p>Languages: English, Setswana, Afrikaans, Sesotho, isiZulu, isiXhosa, isiNdebele, Sepedi, isiSwati, TshiVenda, Tsonga</p>
+                    <p>Currency: South African Rand</p>
+                    <p>Time Zone: GMT+2</p>
+                    <p>Calling Code: +27</p>
+                    <p>International TLD: co.za</p>
+                    <p>Area: 1,221,037 square kilometres (471,445 square miles)</p>
+                </div>
+                <picture>
+                    <source srcset="images/cape-town.jpg.webp" media="(min-width: 768px)">
+                    <source srcset="images/cape-town.jpg(2).webp" media="(max-width: 767px)">
+                    <img src="default-hero.jpg" alt="Hero Image">
+                </picture>
+                <div class="card right-card">           
+                    <h2>Weather</h2>
+                    <p>Temperature: 29°C</p>
+                    <p>Conditions: Sunny</p>
+                    <p>Wind: 10km/h</p>
+                    <p>Wind Chill: <span id="windChill">Calculating...</span></p>
+                </div>
             </div>
-            <picture>
-                <!-- Source for desktop -->
-                <source srcset="images/cape-town.jpg.webp" media="(min-width: 768px)">
-                <!-- Source for mobile -->
-                <source srcset="images/cape-town.jpg(2).webp" media="(max-width: 767px)">
-                <!-- Fallback image (in case the browser doesn't support <picture>) -->
-                <img src="default-hero.jpg" alt="Hero Image">
-            </picture>
-           <div class="card right-card">           
-          <h2>Weather</h2>
-          <p>Temperature:29°C</p>
-          <p>Conditions:Sunny</p>
-          <p>Wind:10km/h</p>
-          <p>Wind Chill: <span id="windChill">Calculating...</span></p>
-
-         </div>
-      </div>
-      </main>
+        </section>
+    </main>
+    <footer class="dark green">
+        <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
+        <p id="lastModified"></p>
+    </footer>
 </body>
-<footer class="dark green">
-    <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
-    <p id="lastModified"></p>
-</footer>
-
 </html>
