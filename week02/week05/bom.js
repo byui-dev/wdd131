@@ -1,5 +1,5 @@
-const button = document.querySelector('#favchap');
-const input = document.querySelector('#chapterInput'); // Corrected selector
+const button = document.querySelector('#button');
+const input = document.querySelector('#favchap'); // Corrected selector
 const list = document.querySelector('#list');
 
 // Initialize chapters array from localStorage or empty array
@@ -25,14 +25,14 @@ button.addEventListener('click', () => {
 function displayList(item) {
     const li = document.createElement('li');
     const deleteButton = document.createElement('button');
-    
+
     li.textContent = item;
     deleteButton.textContent = 'X';
     deleteButton.classList.add('delete');
-    
+
     li.append(deleteButton);
     list.append(li);
-    
+
     deleteButton.addEventListener('click', () => {
         list.removeChild(li);
         deleteChapter(li.textContent);
@@ -51,10 +51,10 @@ function getChapterList() {
 function deleteChapter(chapter) {
     // Remove the 'X' from the end of the chapter name
     chapter = chapter.slice(0, chapter.length - 1);
-    
+
     // Filter out the chapter
     chaptersArray = chaptersArray.filter(item => item !== chapter);
-    
+
     // Update localStorage
     setChapterList();
 }
