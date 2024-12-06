@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const temperature = 29; // from HTML
     const windSpeed = 10; // from HTML
     const windChillSpan = document.getElementById('windChill');
-
+    
     // Simple wind chill calculation
     if (temperature <= 50 && windSpeed > 3) {
-        const windChill = 35.74 + (0.6215 * temperature) -
-            (35.75 * Math.pow(windSpeed, 0.16)) +
-            (0.4275 * temperature * Math.pow(windSpeed, 0.16));
+        const windChill = 35.74 + (0.6215 * temperature) - 
+                          (35.75 * Math.pow(windSpeed, 0.16)) + 
+                          (0.4275 * temperature * Math.pow(windSpeed, 0.16));
         windChillSpan.textContent = `${Math.round(windChill)}°C`;
     } else {
         windChillSpan.textContent = 'Not Applicable';
