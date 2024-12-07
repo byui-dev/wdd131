@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #004d00;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Margin Section */
+.margin-section {
+    height: 30px;
+    background-color: yellow;
+}
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('images/cape-town.jpg.webp');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    padding: 20px; /* Adds internal spacing for non-overlapping positioning */
+    box-sizing: border-box;
+}
+
+/* Left Card */
+.card-left {
+    position: absolute;
+    top: 20px; /* Ensures space below the header */
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 35%; /* Size of the left card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Right Card */
+.card-right {
+    position: absolute;
+    bottom: 20px; /* Ensures space above the footer */
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ddd;
+    padding: 15px;
+    width: 17.5%; /* Half the size of the left card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-right h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px;
+    font-size: 1.2rem;
+    color: #333;
+    border-bottom: 2px solid #004d00;
+    padding-bottom: 5px;
+}
+
+.card-right h2 img {
+    margin-left: 10px; /* Space between heading and SVG */
+    height: 20px; /* Adjust size as needed */
+    width: auto;
+}
+
+.card-right p {
+    text-align: left;
+    margin: 8px 0;
+}
+
+/* Card Hover Effects */
+.card-left:hover,
+.card-right:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #004d00;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .card-left,
+    .card-right {
+        position: static;
+        margin: 10px auto;
+        width: 90%;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+}

@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South Africa</title>
     <script src="place.js" defer></script>
-    <link type="text/css" rel="stylesheet" href="styles/mobileview.css">
-    <link type="text/css" rel="stylesheet" href="styles/largeview.css">
+    <link type="text/css" rel="stylesheet" href="styles/mainview.css">
+    
 </head>
-
 <body>
-    <header class="dark green">
+    <header>
         <h1>South Africa</h1>
     </header>
+    
+    <div class="margin-section"></div>
+    
     <main>
         <section class="hero">
             <div class="hero-content">
-                <div class="card left-card">
+                <img src="images/capetown.webp" alt="Cape Town South Africa">
+                
+                <div class="card">
                     <h2>Data</h2>
-                    <p>Population: 62 million</p>
+                    <p>Population: 62,000,000</p>
                     <p>Capital: Pretoria, Cape Town, Bloemfontein</p>
-                    <p>Languages: English, Setswana, Afrikaans, Sesotho, isiZulu, isiXhosa, isiNdebele, Sepedi,
-                        isiSwati, TshiVenda, Tsonga</p>
+                    <p>Languages: English, Setswana, Afrikaans, Sesotho, isiZulu, isiXhosa, isiNdebele, Sepedi, isiSwati, TshiVenda, Tsonga</p>
                     <p>Currency: South African Rand</p>
                     <p>Time Zone: GMT+2</p>
                     <p>Calling Code: +27</p>
                     <p>International TLD: co.za</p>
-                    <p>Area: 1,221,037 square kilometres (471,445 square miles)</p>
+                    <p>Area: 1,221,037 sq km</p>
                 </div>
-                <img src="images/cape-town.jpg.webp" srcset="images/cape-town-mobile.jpg 480w,
-                             images/cape-town-tablet.jpg 768w,
-                             images/cape-town-desktop.jpg 1200w" sizes="(max-width: 480px) 480px,
-                            (max-width: 768px) 768px,
-                            1200px" alt="Cape Town South Africa" loading="lazy">
-                <div class="card right-card">
+                
+                <div class="card">
                     <h2>Weather</h2>
                     <p>Temperature: 29°C</p>
                     <p>Conditions: Sunny</p>
@@ -44,10 +42,10 @@
             </div>
         </section>
     </main>
-    <footer class="dark green">
+    
+    <footer>
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
         <p id="lastModified"></p>
     </footer>
 </body>
-
 </html>
