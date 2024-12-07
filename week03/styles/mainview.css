@@ -29,7 +29,7 @@ header h1 {
 .hero {
     position: relative;
     min-height: 100vh;
-    background-image: url('images/cape-town.jpg.webp');
+    background-image: url('images/capetown.webp');
     background-size: cover;
     background-position: center center;
     display: flex;
