@@ -6,43 +6,35 @@
     <title>South Africa</title>
     <script src="place.js" defer></script>
     <link type="text/css" rel="stylesheet" href="styles/mainview.css">
-    
 </head>
 <body>
     <header>
         <h1>South Africa</h1>
     </header>
-    
+
     <div class="margin-section"></div>
-    
+
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <img src="images/capetown.webp" alt="Cape Town South Africa">
-                
-                <div class="card">
-                    <h2>Data</h2>
-                    <p>Population: 62,000,000</p>
-                    <p>Capital: Pretoria, Cape Town, Bloemfontein</p>
-                    <p>Languages: English, Setswana, Afrikaans, Sesotho, isiZulu, isiXhosa, isiNdebele, Sepedi, isiSwati, TshiVenda, Tsonga</p>
-                    <p>Currency: South African Rand</p>
-                    <p>Time Zone: GMT+2</p>
-                    <p>Calling Code: +27</p>
-                    <p>International TLD: co.za</p>
-                    <p>Area: 1,221,037 sq km</p>
-                </div>
-                
-                <div class="card">
-                    <h2>Weather</h2>
-                    <p>Temperature: 29°C</p>
-                    <p>Conditions: Sunny</p>
-                    <p>Wind: 10km/h</p>
-                    <p>Wind Chill: <span id="windChill">Calculating...</span></p>
-                </div>
+            <img src="images/capetown.webp" alt="Cape Town South Africa">
+
+            <div class="card card-left"> 
+            </div>
+
+            <div class="card card-right">
+                <h2>
+                    Weather
+                    <img src="images\sunnyweather.svg" alt="Weather Icon" width="20" height="20"> 
+                    
+                </h2>
+                <p>Temperature: 29°C</p>
+                <p>Conditions: Sunny</p>
+                <p>Wind: 10km/h</p>
+                <p>Wind Chill: <span id="windChill">Calculating...</span></p>
             </div>
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
         <p id="lastModified"></p>
