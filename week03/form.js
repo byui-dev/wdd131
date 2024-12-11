@@ -1,3 +1,13 @@
+// form.js
+document.addEventListener('DOMContentLoaded', () => {
+  // Set current year in footer
+  const yearSpan = document.getElementById('year');
+  yearSpan.textContent = new Date().getFullYear();
+
+  // Set last modified date
+  const lastModifiedSpan = document.getElementById('lastModified');
+  lastModifiedSpan.textContent = `Last Modified: ${document.lastModified}`;
+
 const products = [
     {
       id: "fc-1888",
