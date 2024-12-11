@@ -1,4 +1,3 @@
-// form.js
 document.addEventListener('DOMContentLoaded', () => {
   // Set current year in footer
   const yearSpan = document.getElementById('year');
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lastModifiedSpan = document.getElementById('lastModified');
   lastModifiedSpan.textContent = `Last Modified: ${document.lastModified}`;
 
-const products = [
+  const products = [
     {
       id: "fc-1888",
       name: "flux capacitor",
@@ -35,3 +34,19 @@ const products = [
       averagerating: 5.0
     }
   ];
+
+  // Function to populate the product dropdown
+  function populateProductDropdown() {
+    const productSelect = document.querySelector('select[name="product"]');
+    
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = `${product.name} (Avg. Rating: ${product.averagerating})`;
+      productSelect.appendChild(option);
+    });
+  }
+
+  // Call the function to populate dropdown
+  populateProductDropdown();
+});

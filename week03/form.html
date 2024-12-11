@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,67 +7,129 @@
     <script src="form.js" defer></script>
     <link type="text/css" rel="stylesheet" href="styles/form.css">
 </head>
-<header>
-    <h1>Product Review</h1>
-</header>
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
 
-<div class="margin-header"></div>
-<main>
-    <form method="get" action="review.html" class="wf1">
-        <fieldset>
-            <label>Product Name
-                <select name="product">
-                   <option value="">Choose a Product &#9662;</option>
+    <div class="margin-header"></div>
 
-                </select>
-            </label>
-        
-        </fieldset>
+    <main>
+        <form method="get" action="review.html" class="wf1">
+            <fieldset>
+                <label>Product Name
+                    <select name="product" required>
+                        <option value="">Choose a Product &#9662;</option>
+                        <!-- JavaScript will populate this dropdown -->
+                    </select>
+                </label>
+            </fieldset>
 
-        <fieldset>
-            <label>Overall Rating
+            <fieldset>
+                <label>Overall Rating</label>
+                <div class="stars">
+                    <div class="star-bullet">
+                        <input type="radio" id="onestar" name="stars" value="1" required>
+                        <label for="onestar">
+                            <div class="star-container">
+                                <div class="star gold"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="star-bullet">
+                        <input type="radio" id="twostar" name="stars" value="2" required>
+                        <label for="twostar">
+                            <div class="star-container">
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="star-bullet">
+                        <input type="radio" id="threestar" name="stars" value="3" required>
+                        <label for="threestar">
+                            <div class="star-container">
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="star-bullet">
+                        <input type="radio" id="fourstar" name="stars" value="4" required>
+                        <label for="fourstar">
+                            <div class="star-container">
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="star-bullet">
+                        <input type="radio" id="fivestar" name="stars" value="5" required>
+                        <label for="fivestar">
+                            <div class="star-container">
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                                <div class="star gold"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
 
-            </label>
-        </fieldset>
+            <fieldset>
+                <label>Date of Installation <input type="date" name="completeDate"></label>
+            </fieldset>
 
-        <fieldset>
-            <label>Date of Installation <input type="date" name="completeDate">
+            <fieldset>
+                <div class="features-header">Which features did you find useful in the product? (Check all that apply)</div>
+                <div class="features-checkboxes">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="durability" name="features" value="durability">
+                        <label for="durability">Durability</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="ease" name="features" value="ease">
+                        <label for="ease">Ease of Use</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="performance" name="features" value="performance">
+                        <label for="performance">Performance</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="design" name="features" value="design">
+                        <label for="design">Design</label>
+                    </div>
+                </div>
+            </fieldset>
 
-            </label>
-        </fieldset>
+            <fieldset>
+                <div class="text-input-container">
+                    <label for="review" class="text-label">Written Review (Optional)</label>
+                    <textarea id="review" name="review" rows="4" cols="50" placeholder="Share your thoughts about the product"></textarea>
+                </div>
+            </fieldset>
 
-        <fieldset>
-          <div>Which features did you find useful in the product?</div>
-          <label>(Check all that apply)
-          <label><input type="checkbox" name="durability" value="yes">Durability</label>
-          <label><input type="checkbox" name="ease" value="yes">Ease of Use</label>
-          <label><input type="checkbox" name="performance" value="yes">Performance</label>
-          <label><input type="checkbox" name="yes" value="yes">Design</label>
-          </label>
-        </fieldset>
-
-        <fieldset>
-            <label>Written review(Optional)
-
-            </label>
-
-        </fieldset>
-
-        <fieldset>
-            <label>Your Name(Optional)
-
-            </label>
-        </fieldset>    
+            <fieldset>
+                <div class="text-input-container">
+                    <label for="name" class="text-label">Your Name (Optional)</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+            </fieldset>    
 
             <input type="submit" value="Post Review">  
-       
-    </form>
-</main>
+        </form>
+    </main>
 
-<div class="margin-footer"></div>
+    <div class="margin-footer"></div>
 
-<footer>
-    <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
-    <p id="lastModified"></p>
-</footer>
+    <footer>
+        <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
 </html>
