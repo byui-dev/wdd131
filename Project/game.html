@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South African Game Reserves</title>
+    <!-- Mobile-First Styles -->
+    <link rel="stylesheet" href="styles/game.css" media="only screen and (max-width: 768px)">
+    
+    <!-- Large Screen Styles -->
+    <link rel="stylesheet" href="styles/game-large.css" media="only screen and (min-width: 769px)">
+
+
+</head>
+<body>
+    <header>
+        <h1>South African Game Reserves</h1>
+        <nav aria-label="Game Reserve Category Navigation">
+            <ul>
+                <li><a href="#" data-filter="home" class="active">Home</a></li>
+                <li><a href="#" data-filter="old">Old</a></li>
+                <li><a href="#" data-filter="new">New</a></li>
+                <li><a href="#" data-filter="large">Large</a></li>
+                <li><a href="#" data-filter="small">Small</a></li>
+                <li><a href="#" data-filter="rate.html">Rate Our Game Reserves</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="card-container" id="cardContainer">
+            <!-- Temple cards will be dynamically inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="game.js" defer></script>
+</body>
+</html>
