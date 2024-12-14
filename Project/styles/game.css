@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Header Styling */
+  header {
+    background-color: #004d00;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #004d00;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  /* Hero Section Styling */
+  .hero {
+    position: relative;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  /* Hero Content Styling */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  .hero img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  /* Cards Styling */
+  .card {
+    background-color: white;
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .card h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
+  /* Responsive Design */
+  @media screen and (min-width: 768px) {
+    .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+  
+    .card {
+        width: 30%;
+    }
+  
+    .hero img {
+        max-width: 40%;
+        margin: 0;
+    }
+  }
