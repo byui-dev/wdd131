@@ -70,12 +70,21 @@ const reserves = [
         area: 80000,
         hotels: 20,
         imageUrl: ""
-    },
+    }
 ];
+
+// Function to validate URLs
+function isValidUrl(url) {
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+}
 
 // Function to create reserve cards
 function createReserveCards(reserveList) {
-    // Get the container where cards will be displayed
     const cardContainer = document.getElementById('cardContainer');
 
     // Clear existing cards
@@ -86,13 +95,16 @@ function createReserveCards(reserveList) {
         const card = document.createElement('div');
         card.className = 'reserve-card';
 
+        // Ensure image URL is valid or use a placeholder
+        const imageUrl = isValidUrl(reserve.imageUrl) ? reserve.imageUrl : 'https://via.placeholder.com/300x200?text=No+Image';
+
         // Add the reserve's information
         card.innerHTML = `
-            <img src="${reserve.imageUrl}" alt="${reserve.reserveName} Reserve" loading="lazy">
+            <img src="${imageUrl}" alt="${reserve.reserveName} Reserve" loading="lazy">
             <div class="reserve-info">
                 <h3>${reserve.reserveName} Reserve</h3>
                 <p><strong>Location:</strong> ${reserve.location}</p>
-                <p><strong>Dedicated:</strong> ${reserve.dedicated}</p>
+                <p><strong>Dedicated:</strong> ${reserve.opened}</p>
                 <p><strong>Size:</strong> ${reserve.area.toLocaleString()} sq ft</p>
             </div>
         `;
@@ -108,7 +120,7 @@ function filterReserves(category) {
 
     switch (category) {
         case 'old':
-            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() < 2000);
+            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() < 1990);
             break;
         case 'new':
             filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() >= 2000);
@@ -148,7 +160,7 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 // Initial page load - create all reserve cards
 document.addEventListener('DOMContentLoaded', () => {
     // Create initial reserve cards
-    createTempleCards(reserves);
+    createReserveCards(reserves);
 
     // Set current year
     const currentYear = new Date().getFullYear();
