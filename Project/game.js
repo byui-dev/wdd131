@@ -56,19 +56,19 @@ const reserves = [
         imageUrl: ""
     },
     {
-        reserveName: "",
-        location: "",
-        opened: "",
-        area: ,
-        hotels: ,
+        reserveName: "Pilanesberg National Park",
+        location: "North West Province, South Africa",
+        opened: "1979",
+        area: 57250,
+        hotels: 45,
         imageUrl: ""
     },
     {
-        reserveName: "",
-        location: "",
-        opened: "",
-        area: ,
-        hotels: ,
+        reserveName: "Madikwe Game Reserve",
+        location: "North West Province, South Africa",
+        opened: "1994",
+        area: 80000,
+        hotels: 20,
         imageUrl: ""
     },
 ];
@@ -114,10 +114,10 @@ function filterReserves(category) {
             filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() >= 2000);
             break;
         case 'large':
-            filteredReserves = reserves.filter(reserve => reserve.area > 4000);
+            filteredReserves = reserves.filter(reserve => reserve.area > 10000);
             break;
         case 'small':
-            filteredReserves = reserves.filter(reserve => reserve.area < 500);
+            filteredReserves = reserves.filter(reserve => reserve.area < 9500);
             break;
         default:
             filteredReserves = reserves;
