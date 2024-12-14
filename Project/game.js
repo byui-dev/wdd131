@@ -41,22 +41,22 @@ const reserves = [
     },
     {
         reserveName: "Kololo Game Reserve",
-        location: "",
-        opened: "",
-        area: ,
-        hotels: ,
+        location: "Limpopo Province, South Africa",
+        opened: "1980",
+        area: 3000,
+        hotels: 2,
         imageUrl: ""
     },
     {
         reserveName: "Imfolozi Game Reserve",
         location: "KwaZulu Natal Province, South Africa",
         opened: "1895",
-        area: ,
-        hotels: ,
+        area: 96000,
+        hotels: 6,
         imageUrl: ""
     },
     {
-        templeName: "",
+        reserveName: "",
         location: "",
         opened: "",
         area: ,
@@ -64,7 +64,7 @@ const reserves = [
         imageUrl: ""
     },
     {
-        templeName: "",
+        reserveName: "",
         location: "",
         opened: "",
         area: ,
@@ -108,16 +108,16 @@ function filterReserves(category) {
 
     switch (category) {
         case 'old':
-            filteredReserves = reserves.filter(reserve => new Date(temple.dedicated).getFullYear() < 2000);
+            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() < 2000);
             break;
         case 'new':
-            filteredReserves = reserves.filter(reserve => new Date(temple.dedicated).getFullYear() >= 2000);
+            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() >= 2000);
             break;
         case 'large':
-            filteredReserves = reserves.filter(reserve => temple.area > 90000);
+            filteredReserves = reserves.filter(reserve => reserve.area > 4000);
             break;
         case 'small':
-            filteredReserves = reserves.filter(reserve => temple.area < 10000);
+            filteredReserves = reserves.filter(reserve => reserve.area < 500);
             break;
         default:
             filteredReserves = reserves;
@@ -148,7 +148,7 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 // Initial page load - create all reserve cards
 document.addEventListener('DOMContentLoaded', () => {
     // Create initial reserve cards
-    createTempleCards(temples);
+    createTempleCards(reserves);
 
     // Set current year
     const currentYear = new Date().getFullYear();
