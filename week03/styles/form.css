@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    color: #333;
 }
 
 /* Header styling */
@@ -32,6 +33,7 @@ main {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Fieldset styling */
@@ -46,9 +48,10 @@ fieldset {
 .stars {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-top: 10px;
+    position: relative;
 }
 
 /* Individual star bullet containers */
@@ -57,31 +60,14 @@ fieldset {
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    width: 50px; /* Ensure consistent spacing */
 }
 
-/* Radio buttons hidden */
-.stars input[type="radio"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Bullet styling */
-.stars .star-bullet::before {
-    content: '•';
-    font-size: 24px;
-    color: gray;
-    margin-bottom: 5px;
-}
-
-/* Star styling */
+/* Star styling - non-interactive */
 .stars .star-container {
     display: flex;
+    pointer-events: none; /* Prevent star interaction */
+    margin-bottom: 10px; /* Space between stars and radio button */
 }
 
 .stars .star {
@@ -95,6 +81,39 @@ fieldset {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold" stroke="gold" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') no-repeat center;
     background-size: contain;
 }
+
+/* Bullet styling */
+.stars .star-bullet::before {
+    content: '•';
+    font-size: 24px;
+    color: gray;
+    margin-top: 10px;
+}
+
+/* Radio buttons styling */
+.stars input[type="radio"] {
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Improve radio button clickable area */
+.stars .star-bullet label {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    cursor: pointer;
+    z-index: 5;
+}
+
 
 /* Features header styling */
 .features-header {
@@ -116,9 +135,16 @@ fieldset {
 
 .checkbox-item input[type="checkbox"] {
     margin-right: 10px;
+    cursor: pointer;
 }
 
+/* Checkbox and radio button hover effects */
+.checkbox-item input[type="checkbox"]:hover,
+.stars input[type="radio"]:hover {
+    opacity: 0.8;
+}
 
+/* Text input container styling */
 .text-input-container {
     display: flex;
     flex-direction: column;
@@ -131,9 +157,34 @@ fieldset {
 
 .text-input-container textarea,
 .text-input-container input[type="text"] {
-    width: 100%;
+    width: 50%;
     padding: 8px;
     margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.text-input-container textarea:focus,
+.text-input-container input[type="text"]:focus {
+    outline: none;
+    border-color: purple;
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.3);
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #5a005a;
 }
 
 /* Footer styling */
@@ -158,5 +209,14 @@ footer {
 
     .wf1 {
         padding: 10px;
+    }
+
+    .stars {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stars .star-bullet {
+        margin: 0 10px 40px;
     }
 }
