@@ -32,6 +32,9 @@ reviewForm.addEventListener('submit', function(event) {
   });
 });  
 
+// Set current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
 
 
 
