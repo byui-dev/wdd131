@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Get the review form
-    const reviewForm = document.getElementById('reviewForm');
+    const reviewFor= document.getElementById('reviewForm');
 
     // Get the review count display element 
     const reviewCountDisplay = document.getElementById('reviewCount');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Set current year in footer
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();m 
 
 
 
