@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Review</title>
+    <title>Rate the service at our Game Reserve</title>
     <script src="forms.js" defer></script>
     <link type="text/css" rel="stylesheet" href="styles/forms.css">
 </head>
 <body>
     <header>
-        <h1>Product Review</h1>
+        <h1>Rate Our Service</h1>
     </header>
 
     <div class="margin-header"></div>
@@ -17,9 +17,9 @@
     <main>
         <form method="get" action="reviews.html" class="wf1">
             <fieldset>
-                <label>Product Name
-                    <select name="product" required>
-                        <option value="">Choose a Product &#9662;</option>
+                <label>Name of Game Reserve
+                    <select name="reserve" required>
+                        <option value="">Choose a Game Reserve &#9662;</option>
                         <!-- JavaScript will populate this dropdown -->
                     </select>
                 </label>
@@ -82,26 +82,26 @@
             </fieldset>
 
             <fieldset>
-                <label>Date of Installation <input type="date" name="completeDate"></label>
+                <label>Date when you visited the Game Reserve <input type="date" name="completeDate"></label>
             </fieldset>
 
             <fieldset>
                 <div class="features-header">What did you enjoy the most about your visit to the game reserve? (Check all that apply)</div>
                 <div class="features-checkboxes">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="durability" name="features" value="durability">
+                        <input type="checkbox" id="location" name="features" value="location">
                         <label for="durability">Location</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="ease" name="features" value="ease">
+                        <input type="checkbox" id="accessibility" name="features" value="accessibility">
                         <label for="ease">Accessibility</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="performance" name="features" value="performance">
+                        <input type="checkbox" id="accomodation" name="features" value="accomodation">
                         <label for="performance">Accomodation</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="design" name="features" value="design">
+                        <input type="checkbox" id="drive" name="features" value="drive">
                         <label for="design">Game Drive</label>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
             <fieldset>
                 <div class="text-input-container">
                     <label for="review" class="text-label">Written Review (Optional)</label>
-                    <textarea id="review" name="review" rows="4" cols="50" placeholder="Share your thoughts about the product"></textarea>
+                    <textarea id="review" name="review" rows="4" cols="50" placeholder="Share your thoughts about the Game Reserve"></textarea>
                 </div>
             </fieldset>
 

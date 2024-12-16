@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South African Game Reserves</title>
-    <link rel="stylesheet" href="styles/base1.css">
+    
     <!-- Mobile-First Styles -->
     <link rel="stylesheet" href="styles/game.css" media="only screen and (max-width: 768px)">
     
     <!-- Large Screen Styles -->
     <link rel="stylesheet" href="styles/game-large.css" media="only screen and (min-width: 769px)">
+
+    <script src="game.js" defer></script>
 
 
 </head>
@@ -30,7 +32,7 @@
     </header>
     
     <main>
-        <div class="card-container" id="cardContainer">
+        <div class="card-containers" id="cardContainers">
             <!-- Game Reserve cards will be dynamically inserted here by JavaScript -->
         </div>
     </main>
@@ -40,7 +42,6 @@
         <p id="lastModified"></p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="game.js" defer></script>
+    
 </body>
 </html>

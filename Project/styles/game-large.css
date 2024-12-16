@@ -10,7 +10,7 @@ body {
 header {
     background-color: #8AAA79;
     padding: 20px;
-    text-align: center;
+    align-items: start; ;
     color: white;
 }
 
@@ -55,7 +55,7 @@ footer {
 }
 
 /* Reserve Cards Container */
-#cardContainer {
+#cardContainers {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

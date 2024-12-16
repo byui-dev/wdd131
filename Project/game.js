@@ -4,7 +4,6 @@ const reserves = [
         location: "Gauteng Province, South Africa",
         opened: "2011, September, 22",
         area: 20000,
-        hotels: 9,
         imageUrl: "https://i.ibb.co/TWTHcQH/dinokeng-game1.webp"
     },
     {
@@ -12,7 +11,6 @@ const reserves = [
         location: "KwaZulu Natal Province, South Africa",
         opened: "1911",
         area: 4500,
-        hotels: 2,
         imageUrl: "https://i.ibb.co/FDw0C8W/thula-thula-private1.webp"
     },
     {
@@ -20,7 +18,6 @@ const reserves = [
         location: "Eastern Cape Province, South Africa",
         opened: "1992",
         area: 250,
-        hotels: 7,
         imageUrl: "https://i.ibb.co/FY7Cbmt/shamwari-private1.webp"
     },
     {
@@ -28,7 +25,6 @@ const reserves = [
         location: "Eastern Cape Province, South Africa",
         opened: "1989",
         area: 10000,
-        hotels: 5,
         imageUrl: "https://i.ibb.co/1mk9ZBz/kariega-game1.webp"
     },
     {
@@ -36,7 +32,6 @@ const reserves = [
         location: "Eastern Cape Province, South Africa",
         opened: "1999, October, 29",
         area: 7400,
-        hotels: 8,
         imageUrl: "https://i.ibb.co/tYHf1Wc/amakhala-game1.webp"
     },
     {
@@ -44,7 +39,6 @@ const reserves = [
         location: "Limpopo Province, South Africa",
         opened: "1980",
         area: 3000,
-        hotels: 2,
         imageUrl: "https://i.ibb.co/k8T114M/kololo-game1.webp"
     },
     {
@@ -52,7 +46,6 @@ const reserves = [
         location: "KwaZulu Natal Province, South Africa",
         opened: "1895",
         area: 96000,
-        hotels: 6,
         imageUrl: "https://i.ibb.co/qk1hyKC/imfolozi-game1.webp"
     },
 
@@ -61,7 +54,6 @@ const reserves = [
         location: "North West Province, South Africa",
         opened: "1979",
         area: 57250,
-        hotels: 45,
         imageUrl: "https://i.ibb.co/zsScy8V/pilanesberg-game1.webp"
     },
     
@@ -70,7 +62,6 @@ const reserves = [
         location: "North West Province, South Africa",
         opened: "1994",
         area: 80000,
-        hotels: 20,
         imageUrl: "https://i.ibb.co/qnNTbYJ/madikwe-game1.webp"
     }
 ];
