@@ -78,7 +78,7 @@ function isValidUrl(url) {
 
 // Function to create reserve cards
 function createReserveCards(reserveList) {
-    const cardContainer = document.getElementById('cardContainer');
+    const cardContainer = document.getElementById('cardContainers');
 
     // Clear existing cards
     cardContainer.innerHTML = '';

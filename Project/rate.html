@@ -3,133 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rate the service at our Game Reserve</title>
+    <title>Rate Our Game Reserve Service</title>
+    <link rel="stylesheet" href="styles/forms.css">
     <script src="forms.js" defer></script>
-    <link type="text/css" rel="stylesheet" href="styles/forms.css">
 </head>
 <body>
     <header>
         <h1>Rate Our Service</h1>
     </header>
 
-    <div class="margin-header"></div>
-
     <main>
-        <form method="get" action="reviews.html" class="wf1">
+        <form method="get" action="reviews.html" class="form-container">
             <fieldset>
-                <label>Name of Game Reserve
-                    <select name="reserve" required>
-                        <option value="">Choose a Game Reserve &#9662;</option>
-                        <!-- JavaScript will populate this dropdown -->
-                    </select>
-                </label>
+                <legend>Game Reserve Details</legend>
+                <label for="reserve">Name of Game Reserve</label>
+                <select name="reserve" id="reserve" required>
+                    <option value="" disabled selected>Select a Game Reserve</option>
+                    <!-- Populated dynamically by JavaScript -->
+                </select>
             </fieldset>
 
             <fieldset>
-                <label>Overall Rating</label>
+                <legend>Rate Us</legend>
+                <label for="stars">Overall Rating</label>
                 <div class="stars">
-                    <div class="star-bullet">
-                        <input type="radio" id="onestar" name="stars" value="1" required>
-                        <label for="onestar">
-                            <div class="star-container">
-                                <div class="star gold"></div>
-                            </div>
-                        </label>
+                    <!-- Radio buttons with labels for each star -->
+                    <div class="star-container">
+                        <input type="radio" id="one-star" name="stars" value="1" required>
+                        <label for="one-star">★</label>
                     </div>
-                    <div class="star-bullet">
-                        <input type="radio" id="twostar" name="stars" value="2" required>
-                        <label for="twostar">
-                            <div class="star-container">
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                            </div>
-                        </label>
+                    <div class="star-container">
+                        <input type="radio" id="two-stars" name="stars" value="2" required>
+                        <label for="two-stars">★★</label>
                     </div>
-                    <div class="star-bullet">
-                        <input type="radio" id="threestar" name="stars" value="3" required>
-                        <label for="threestar">
-                            <div class="star-container">
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                            </div>
-                        </label>
+                    <div class="star-container">
+                        <input type="radio" id="three-stars" name="stars" value="3" required>
+                        <label for="three-stars">★★★</label>
                     </div>
-                    <div class="star-bullet">
-                        <input type="radio" id="fourstar" name="stars" value="4" required>
-                        <label for="fourstar">
-                            <div class="star-container">
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                            </div>
-                        </label>
+                    <div class="star-container">
+                        <input type="radio" id="four-stars" name="stars" value="4" required>
+                        <label for="four-stars">★★★★</label>
                     </div>
-                    <div class="star-bullet">
-                        <input type="radio" id="fivestar" name="stars" value="5" required>
-                        <label for="fivestar">
-                            <div class="star-container">
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                                <div class="star gold"></div>
-                            </div>
-                        </label>
+                    <div class="star-container">
+                        <input type="radio" id="five-stars" name="stars" value="5" required>
+                        <label for="five-stars">★★★★★</label>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <label>Date when you visited the Game Reserve <input type="date" name="completeDate"></label>
+                <legend>Visit Details</legend>
+                <label for="visit-date">Date of Visit</label>
+                <input type="date" id="visit-date" name="visitDate" required>
             </fieldset>
 
             <fieldset>
-                <div class="features-header">What did you enjoy the most about your visit to the game reserve? (Check all that apply)</div>
-                <div class="features-checkboxes">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="location" name="features" value="location">
-                        <label for="durability">Location</label>
+                <legend>Highlights</legend>
+                <p>What did you enjoy the most? (Select all that apply)</p>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="location" name="highlights" value="location">
+                        <label for="location">Location</label>
                     </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="accessibility" name="features" value="accessibility">
-                        <label for="ease">Accessibility</label>
+                    <div>
+                        <input type="checkbox" id="accessibility" name="highlights" value="accessibility">
+                        <label for="accessibility">Accessibility</label>
                     </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="accomodation" name="features" value="accomodation">
-                        <label for="performance">Accomodation</label>
+                    <div>
+                        <input type="checkbox" id="accommodation" name="highlights" value="accommodation">
+                        <label for="accommodation">Accommodation</label>
                     </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="drive" name="features" value="drive">
-                        <label for="design">Game Drive</label>
+                    <div>
+                        <input type="checkbox" id="game-drive" name="highlights" value="gameDrive">
+                        <label for="game-drive">Game Drive</label>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <div class="text-input-container">
-                    <label for="review" class="text-label">Written Review (Optional)</label>
-                    <textarea id="review" name="review" rows="4" cols="50" placeholder="Share your thoughts about the Game Reserve"></textarea>
-                </div>
+                <legend>Additional Feedback</legend>
+                <label for="review">Write a Review (Optional)</label>
+                <textarea id="review" name="review" rows="4" placeholder="Share your experience..."></textarea>
+
+                <label for="name">Your Name (Optional)</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
             </fieldset>
 
-            <fieldset>
-                <div class="text-input-container">
-                    <label for="name" class="text-label">Your Name (Optional)</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name">
-                </div>
-            </fieldset>    
-
-            <input type="submit" value="Post Review">  
+            <button type="submit">Submit Review</button>
         </form>
     </main>
 
-    <div class="margin-footer"></div>
-
     <footer>
         <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
-        <p id="lastModified"></p>
+        <p id="last-modified"></p>
     </footer>
 </body>
 </html>
