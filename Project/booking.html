@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Game Reserve Stay</title>
+    
+    <!-- Mobile-First Styles -->
+    <link rel="stylesheet" href="styles/booking-mobile.css" media="only screen and (max-width: 768px)">
+    
+    <!-- Large Screen Styles -->
+    <link rel="stylesheet" href="styles/booking-large.css" media="only screen and (min-width: 769px)">
+
+    <script src="booking.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Book Your Game Reserve Adventure</h1>
+        <nav>
+            <ul>
+                <li><a href="game.html">Home</a></li>
+                <li><a href="rate.html">Rate Our Reserves</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="booking-form-section"></section>   
+            <h2>Reserve Your Stay</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                     <label for="reserveSelect">Select Game Reserve</label>
+                     <select id="reserveSelect" name="reserve" required>
+                     <option value="">Choose a Game Reserve</option>   
+                     <!-- Options will be populated dynamically-->
+                     </select>
+                </div>
+
+                <div class="form-group">
+                     <label for="fullName">Full Name</label>
+                     <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                     <label for="email">Email Address</label>
+                     <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                     <label for="arrivalDate">Arrival Date</label>
+                     <input type="date" id="arrivalDate" name="arrivalDate" required>
+                </div>
+
+                <div class="form-group">
+                     <label for="departureDate">Departure Date</label>
+                     <input type="date" id="departureDate" name="departureDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" required>
+                </div>
+           
+                <button type="submit">Book Now</button>
+            </form>
+        </section>    
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span>Obakeng Kennedy Diphala, South Africa</p>
+        <p id="lastModified"></p>
+    </footer>
+
+   
+</body>
+</html> 
