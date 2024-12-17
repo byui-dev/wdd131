@@ -2,164 +2,201 @@ const reserves = [
     {
         reserveName: "Dinokeng Game Reserve",
         location: "Gauteng Province, South Africa",
-        opened: "2011, September, 22",
+        opened: "2011-09-22",
         area: 20000,
-        imageUrl: "https://i.ibb.co/TWTHcQH/dinokeng-game1.webp"
+        imageUrl: "https://i.ibb.co/TWTHcQH/dinokeng-game1.webp",
+        category: "new"
     },
     {
         reserveName: "Thula Thula Private Game Reserve",
         location: "KwaZulu Natal Province, South Africa",
-        opened: "1911",
+        opened: "1911-01-01",
         area: 4500,
-        imageUrl: "https://i.ibb.co/FDw0C8W/thula-thula-private1.webp"
+        imageUrl: "https://i.ibb.co/FDw0C8W/thula-thula-private1.webp",
+        category: "old"
     },
     {
         reserveName: "Shamwari Private Game Reserve",
         location: "Eastern Cape Province, South Africa",
-        opened: "1992",
+        opened: "1992-01-01",
         area: 250,
-        imageUrl: "https://i.ibb.co/FY7Cbmt/shamwari-private1.webp"
+        imageUrl: "https://i.ibb.co/FY7Cbmt/shamwari-private1.webp",
+        category: "old"
     },
     {
         reserveName: "Kariega Game Reserve",
         location: "Eastern Cape Province, South Africa",
-        opened: "1989",
+        opened: "1989-01-01",
         area: 10000,
-        imageUrl: "https://i.ibb.co/1mk9ZBz/kariega-game1.webp"
+        imageUrl: "https://i.ibb.co/1mk9ZBz/kariega-game1.webp",
+        category: "old"
     },
     {
         reserveName: "Amakhala Game Reserve",
         location: "Eastern Cape Province, South Africa",
-        opened: "1999, October, 29",
+        opened: "1999-10-29",
         area: 7400,
-        imageUrl: "https://i.ibb.co/tYHf1Wc/amakhala-game1.webp"
+        imageUrl: "https://i.ibb.co/tYHf1Wc/amakhala-game1.webp",
+        category: "old"
     },
     {
         reserveName: "Kololo Game Reserve",
         location: "Limpopo Province, South Africa",
-        opened: "1980",
+        opened: "1980-01-01",
         area: 3000,
-        imageUrl: "https://i.ibb.co/k8T114M/kololo-game1.webp"
+        imageUrl: "https://i.ibb.co/k8T114M/kololo-game1.webp",
+        category: "old small"
     },
     {
         reserveName: "Imfolozi Game Reserve",
         location: "KwaZulu Natal Province, South Africa",
-        opened: "1895",
+        opened: "1895-01-01",
         area: 96000,
-        imageUrl: "https://i.ibb.co/qk1hyKC/imfolozi-game1.webp"
+        imageUrl: "https://i.ibb.co/qk1hyKC/imfolozi-game1.webp",
+        category: "old large"
     },
-
     {
         reserveName: "Pilanesberg National Park",
         location: "North West Province, South Africa",
-        opened: "1979",
+        opened: "1979-01-01",
         area: 57250,
-        imageUrl: "https://i.ibb.co/zsScy8V/pilanesberg-game1.webp"
+        imageUrl: "https://i.ibb.co/zsScy8V/pilanesberg-game1.webp",
+        category: "old large"
     },
-    
     {
         reserveName: "Madikwe Game Reserve",
         location: "North West Province, South Africa",
-        opened: "1994",
+        opened: "1994-01-01",
         area: 80000,
-        imageUrl: "https://i.ibb.co/qnNTbYJ/madikwe-game1.webp"
+        imageUrl: "https://i.ibb.co/qnNTbYJ/madikwe-game1.webp",
+        category: "old large"
     }
 ];
 
-// Function to validate URLs
+// Improved URL validation
 function isValidUrl(url) {
     try {
-        new URL(url);
-        return true;
+        const parsedUrl = new URL(url);
+        return parsedUrl.protocol === 'https:';
     } catch {
+        console.warn(`Invalid URL: ${url}`);
         return false;
     }
 }
 
-// Function to create reserve cards
+// Robust date parsing
+function parseYear(dateString) {
+    try {
+        return new Date(dateString).getFullYear();
+    } catch {
+        console.warn(`Could not parse date: ${dateString}`);
+        return null;
+    }
+}
+
+// Create reserve cards with enhanced error handling
 function createReserveCards(reserveList) {
     const cardContainer = document.getElementById('cardContainers');
 
     // Clear existing cards
     cardContainer.innerHTML = '';
 
-    // Loop through the array of reserves and create cards
+    // Error handling for empty list
+    if (!reserveList || reserveList.length === 0) {
+        cardContainer.innerHTML = '<p>No reserves found. Please try another filter.</p>';
+        return;
+    }
+
+    // Loop through reserves and create cards
     reserveList.forEach(reserve => {
         const card = document.createElement('div');
         card.className = 'reserve-card';
 
-        // Ensure image URL is valid or use a placeholder
-        const imageUrl = isValidUrl(reserve.imageUrl) ? reserve.imageUrl : 'https://via.placeholder.com/300x200?text=No+Image';
+        // Improved image URL handling
+        const imageUrl = (isValidUrl(reserve.imageUrl)) 
+            ? reserve.imageUrl 
+            : 'https://via.placeholder.com/300x200?text=Reserve+Image';
 
-        // Add the reserve's information
+        // Add reserve information with safe fallbacks
         card.innerHTML = `
-            <img src="${imageUrl}" alt="${reserve.reserveName} Reserve" loading="lazy">
+            <img 
+                src="${imageUrl}" 
+                alt="${reserve.reserveName} Reserve" 
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Image+Error'"
+            >
             <div class="reserve-info">
                 <h3>${reserve.reserveName} Reserve</h3>
-                <p><strong>Location:</strong> ${reserve.location}</p>
-                <p><strong>Dedicated:</strong> ${reserve.opened}</p>
-                <p><strong>Size:</strong> ${reserve.area.toLocaleString()} sq ft</p>
+                <p><strong>Location:</strong> ${reserve.location || 'Location Not Specified'}</p>
+                <p><strong>Dedicated:</strong> ${parseYear(reserve.opened) || 'Year Unknown'}</p>
+                <p><strong>Size:</strong> ${reserve.area ? reserve.area.toLocaleString() + ' sq ft' : 'Size Not Available'}</p>
             </div>
         `;
 
-        // Append the card to the container
         cardContainer.appendChild(card);
     });
 }
 
-// Function to filter reserves
+// Enhanced reserve filtering
 function filterReserves(category) {
-    let filteredReserves;
-
-    switch (category) {
-        case 'old':
-            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() < 1990);
-            break;
-        case 'new':
-            filteredReserves = reserves.filter(reserve => new Date(reserve.opened).getFullYear() >= 2000);
-            break;
-        case 'large':
-            filteredReserves = reserves.filter(reserve => reserve.area > 10000);
-            break;
-        case 'small':
-            filteredReserves = reserves.filter(reserve => reserve.area < 9500);
-            break;
-        default:
-            filteredReserves = reserves;
+    // Handle 'home' category to show all reserves
+    if (category === 'home') {
+        createReserveCards(reserves);
+        return;
     }
+
+    // Filter reserves based on category
+    const filteredReserves = reserves.filter(reserve => 
+        reserve.category.split(' ').includes(category)
+    );
 
     createReserveCards(filteredReserves);
 }
 
 // Add event listeners to navigation links
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
+function initializeNavigation() {
+    const navLinks = document.querySelectorAll('nav ul li a[data-filter]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
 
-        // Remove active class from all links
-        document.querySelectorAll('nav ul li a').forEach(l => l.classList.remove('active'));
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
 
-        // Add active class to clicked link
-        e.target.classList.add('active');
+            // Add active class to clicked link
+            e.target.classList.add('active');
 
-        // Get filter category from data attribute
-        const category = e.target.getAttribute('data-filter');
+            // Get filter category
+            const category = e.target.getAttribute('data-filter');
 
-        // Filter reserves
-        filterReserves(category);
+            // Filter reserves
+            filterReserves(category);
+        });
     });
-});
+}
 
-// Initial page load - create all reserve cards
+// Initialize page on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Create initial reserve cards
-    createReserveCards(reserves);
+    try {
+        // Create initial reserve cards
+        createReserveCards(reserves);
 
-    // Set current year
-    const currentYear = new Date().getFullYear();
-    document.getElementById('year').textContent = currentYear;
+        // Initialize navigation
+        initializeNavigation();
 
-    // Set last modified date
-    const lastModifiedDate = document.lastModified;
-    document.getElementById('lastModified').textContent = `Last Updated: ${lastModifiedDate}`;
+        // Set current year
+        const currentYear = new Date().getFullYear();
+        const yearElement = document.getElementById('year');
+        if (yearElement) yearElement.textContent = currentYear;
+
+        // Set last modified date
+        const lastModifiedElement = document.getElementById('lastModified');
+        if (lastModifiedElement) {
+            const lastModifiedDate = document.lastModified;
+            lastModifiedElement.textContent = `Last Updated: ${lastModifiedDate}`;
+        }
+    } catch (error) {
+        console.error('Page initialization error:', error);
+    }
 });
