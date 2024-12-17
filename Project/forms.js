@@ -1,47 +1,202 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get the current year and set it in the footer
-    const currentYear = new Date().getFullYear();
-    const yearSpan = document.getElementById('year');
-    yearSpan.textContent = currentYear;
+const reserves = [
+    {
+        reserveName: "Dinokeng Game Reserve",
+        location: "Gauteng Province, South Africa",
+        opened: "2011-09-22",
+        area: 20000,
+        imageUrl: "https://i.ibb.co/TWTHcQH/dinokeng-game1.webp",
+        category: "new"
+    },
+    {
+        reserveName: "Thula Thula Private Game Reserve",
+        location: "KwaZulu Natal Province, South Africa",
+        opened: "1911-01-01",
+        area: 4500,
+        imageUrl: "https://i.ibb.co/FDw0C8W/thula-thula-private1.webp",
+        category: "old"
+    },
+    {
+        reserveName: "Shamwari Private Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+        opened: "1992-01-01",
+        area: 250,
+        imageUrl: "https://i.ibb.co/FY7Cbmt/shamwari-private1.webp",
+        category: "old"
+    },
+    {
+        reserveName: "Kariega Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+        opened: "1989-01-01",
+        area: 10000,
+        imageUrl: "https://i.ibb.co/1mk9ZBz/kariega-game1.webp",
+        category: "old"
+    },
+    {
+        reserveName: "Amakhala Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+        opened: "1999-10-29",
+        area: 7400,
+        imageUrl: "https://i.ibb.co/tYHf1Wc/amakhala-game1.webp",
+        category: "old"
+    },
+    {
+        reserveName: "Kololo Game Reserve",
+        location: "Limpopo Province, South Africa",
+        opened: "1980-01-01",
+        area: 3000,
+        imageUrl: "https://i.ibb.co/k8T114M/kololo-game1.webp",
+        category: "old small"
+    },
+    {
+        reserveName: "Imfolozi Game Reserve",
+        location: "KwaZulu Natal Province, South Africa",
+        opened: "1895-01-01",
+        area: 96000,
+        imageUrl: "https://i.ibb.co/qk1hyKC/imfolozi-game1.webp",
+        category: "old large"
+    },
+    {
+        reserveName: "Pilanesberg National Park",
+        location: "North West Province, South Africa",
+        opened: "1979-01-01",
+        area: 57250,
+        imageUrl: "https://i.ibb.co/zsScy8V/pilanesberg-game1.webp",
+        category: "old large"
+    },
+    {
+        reserveName: "Madikwe Game Reserve",
+        location: "North West Province, South Africa",
+        opened: "1994-01-01",
+        area: 80000,
+        imageUrl: "https://i.ibb.co/qnNTbYJ/madikwe-game1.webp",
+        category: "old large"
+    }
+];
 
-    // 2. Get the last modified date and set it in the footer
-    const lastModifiedSpan = document.getElementById('lastModified');
-    lastModifiedSpan.textContent = "Last Modified: " + document.lastModified;
+// Improved URL validation
+function isValidUrl(url) {
+    try {
+        const parsedUrl = new URL(url);
+        return parsedUrl.protocol === 'https:';
+    } catch {
+        console.warn(`Invalid URL: ${url}`);
+        return false;
+    }
+}
 
-    // 3. Define an array of game reserves with their IDs, names, and average ratings
-    const reserves = [
-        { id: "dg-2007", name: "Dinokeng Game Reserve", averagerating: 4.5 },
-        { id: "tt-2020", name: "Thula Thula Private Game Reserve", averagerating: 4.7 },
-        { id: "sp-1990", name: "Shamwari Private Game Reserve", averagerating: 3.5 },
-        { id: "kg-2005", name: "Kariega Game Reserve", averagerating: 3.9 },
-        { id: "ag-1910", name: "Amakhala Game Reserve", averagerating: 5.0 },
-        { id: "kl-1989", name: "Kololo Game Reserve", averagerating: 5.0 },
-        { id: "ig-1919", name: "Imfolozi Game Reserve", averagerating: 5.0 },
-        { id: "pg-1979", name: "Pilanesberg National Park", averagerating: 5.0 },
-        { id: "mg-1985", name: "Madikwe Game Reserve", averagerating: 5.0 }
-    ];
+// Robust date parsing
+function parseYear(dateString) {
+    try {
+        return new Date(dateString).getFullYear();
+    } catch {
+        console.warn(`Could not parse date: ${dateString}`);
+        return null;
+    }
+}
 
-    // 4. Function to populate the game reserve dropdown
-    function populateReserveDropdown() {
-        // Get the select element for game reserves
-        const reserveSelect = document.querySelector('select[name="reserve"]');
-        reserveSelect.setAttribute('aria-label', 'Select a Game Reserve');
+// Create reserve cards with enhanced error handling
+function createReserveCards(reserveList) {
+    const cardContainer = document.getElementById('cardContainers');
 
-        // Ensure reserves array is not empty
-        if (reserves.length === 0) {
-            console.warn("No game reserves available.");
-            return;
-        }
+    // Clear existing cards
+    cardContainer.innerHTML = '';
 
-        // Iterate through the reserves array
-        reserves.forEach(reserve => {
-            const option = document.createElement('option');
-            option.value = reserve.id; // Set the reserve's ID as the option value
-            option.textContent = `${reserve.name} (Avg. Rating: ${reserve.averagerating})`;
-            reserveSelect.appendChild(option);
-        });
+    // Error handling for empty list
+    if (!reserveList || reserveList.length === 0) {
+        cardContainer.innerHTML = '<p>No reserves found. Please try another filter.</p>';
+        return;
     }
 
-    // 5. Call the function to populate the dropdown
-    populateReserveDropdown();
+    // Loop through reserves and create cards
+    reserveList.forEach(reserve => {
+        const card = document.createElement('div');
+        card.className = 'reserve-card';
+
+        // Improved image URL handling
+        const imageUrl = (isValidUrl(reserve.imageUrl)) 
+            ? reserve.imageUrl 
+            : 'https://via.placeholder.com/300x200?text=Reserve+Image';
+
+        // Add reserve information with safe fallbacks
+        card.innerHTML = `
+            <img 
+                src="${imageUrl}" 
+                alt="${reserve.reserveName} Reserve" 
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x200?text=Image+Error'"
+            >
+            <div class="reserve-info">
+                <h3>${reserve.reserveName} Reserve</h3>
+                <p><strong>Location:</strong> ${reserve.location || 'Location Not Specified'}</p>
+                <p><strong>Dedicated:</strong> ${parseYear(reserve.opened) || 'Year Unknown'}</p>
+                <p><strong>Size:</strong> ${reserve.area ? reserve.area.toLocaleString() + ' sq ft' : 'Size Not Available'}</p>
+            </div>
+        `;
+
+        cardContainer.appendChild(card);
+    });
+}
+
+// Enhanced reserve filtering
+function filterReserves(category) {
+    // Handle 'home' category to show all reserves
+    if (category === 'home') {
+        createReserveCards(reserves);
+        return;
+    }
+
+    // Filter reserves based on category
+    const filteredReserves = reserves.filter(reserve => 
+        reserve.category.split(' ').includes(category)
+    );
+
+    createReserveCards(filteredReserves);
+}
+
+// Add event listeners to navigation links
+function initializeNavigation() {
+    const navLinks = document.querySelectorAll('nav ul li a[data-filter]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Add active class to clicked link
+            e.target.classList.add('active');
+
+            // Get filter category
+            const category = e.target.getAttribute('data-filter');
+
+            // Filter reserves
+            filterReserves(category);
+        });
+    });
+}
+
+// Initialize page on DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        // Create initial reserve cards
+        createReserveCards(reserves);
+
+        // Initialize navigation
+        initializeNavigation();
+
+        // Set current year
+        const currentYear = new Date().getFullYear();
+        const yearElement = document.getElementById('year');
+        if (yearElement) yearElement.textContent = currentYear;
+
+        // Set last modified date
+        const lastModifiedElement = document.getElementById('lastModified');
+        if (lastModifiedElement) {
+            const lastModifiedDate = document.lastModified;
+            lastModifiedElement.textContent = `Last Updated: ${lastModifiedDate}`;
+        }
+    } catch (error) {
+        console.error('Page initialization error:', error);
+    }
 });
