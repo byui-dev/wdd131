@@ -13,13 +13,14 @@
     </header>
 
     <main>
+        <!-- Form to submit a review -->
         <form method="get" action="reviews.html" class="form-container">
             <fieldset>
                 <legend>Game Reserve Details</legend>
                 <label for="reserve">Name of Game Reserve</label>
                 <select name="reserve" id="reserve" required>
                     <option value="" disabled selected>Select a Game Reserve</option>
-                    <!-- Populated dynamically by JavaScript -->
+                    <!-- Options will be populated dynamically via JavaScript -->
                 </select>
             </fieldset>
 
@@ -27,7 +28,6 @@
                 <legend>Rate Us</legend>
                 <label for="stars">Overall Rating</label>
                 <div class="stars">
-                    <!-- Radio buttons with labels for each star -->
                     <div class="star-container">
                         <input type="radio" id="one-star" name="stars" value="1" required>
                         <label for="one-star">★</label>
@@ -90,6 +90,32 @@
             </fieldset>
 
             <button type="submit">Submit Review</button>
+        </form>
+
+        <!-- Form to add a new reserve -->
+        <form id="reserveForm" class="form-container">
+            <fieldset>
+                <legend>Add a New Game Reserve</legend>
+                <label for="newReserveName">Reserve Name:</label>
+                <input type="text" id="newReserveName" name="reserveName" required>
+
+                <label for="newLocation">Location:</label>
+                <input type="text" id="newLocation" name="location" required>
+
+                <label for="newOpened">Opened Date:</label>
+                <input type="date" id="newOpened" name="opened" required>
+
+                <label for="newArea">Area (hectares):</label>
+                <input type="number" id="newArea" name="area" required>
+
+                <label for="newImageUrl">Image URL:</label>
+                <input type="url" id="newImageUrl" name="imageUrl" required>
+
+                <label for="newCategory">Category:</label>
+                <input type="text" id="newCategory" name="category" required>
+
+                <button type="submit">Add Reserve</button>
+            </fieldset>
         </form>
     </main>
 

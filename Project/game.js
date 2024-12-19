@@ -97,6 +97,11 @@ function parseYear(dateString) {
 // Create reserve cards with enhanced error handling
 function createReserveCards(reserveList) {
     const cardContainer = document.getElementById('cardContainers');
+    
+    if (!cardContainer) {
+        console.error('Card container not found');
+        return;
+    }
 
     // Clear existing cards
     cardContainer.innerHTML = '';
@@ -117,19 +122,18 @@ function createReserveCards(reserveList) {
             ? reserve.imageUrl 
             : 'https://via.placeholder.com/300x200?text=Reserve+Image';
 
-        // Add reserve information with safe fallbacks
         card.innerHTML = `
             <img 
                 src="${imageUrl}" 
-                alt="${reserve.reserveName} Reserve" 
+                alt="${reserve.reserveName || 'Game Reserve'}" 
                 loading="lazy"
                 onerror="this.src='https://via.placeholder.com/300x200?text=Image+Error'"
             >
             <div class="reserve-info">
-                <h3>${reserve.reserveName} Reserve</h3>
+                <h3>${reserve.reserveName || 'Unknown Reserve'}</h3>
                 <p><strong>Location:</strong> ${reserve.location || 'Location Not Specified'}</p>
-                <p><strong>Dedicated:</strong> ${parseYear(reserve.opened) || 'Year Unknown'}</p>
-                <p><strong>Size:</strong> ${reserve.area ? reserve.area.toLocaleString() + ' sq ft' : 'Size Not Available'}</p>
+                <p><strong>Established:</strong> ${parseYear(reserve.opened) || 'Year Unknown'}</p>
+                <p><strong>Size:</strong> ${reserve.area ? `${reserve.area.toLocaleString()} hectares` : 'Size Not Available'}</p>
             </div>
         `;
 
@@ -167,16 +171,13 @@ function initializeNavigation() {
             // Add active class to clicked link
             e.target.classList.add('active');
 
-            // Get filter category
-            const category = e.target.getAttribute('data-filter');
-
-            // Filter reserves
-            filterReserves(category);
+            // Get filter category and filter reserves
+            filterReserves(e.target.getAttribute('data-filter'));
         });
     });
 }
 
-// Initialize page on DOM content loaded
+// Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     try {
         // Create initial reserve cards
@@ -186,15 +187,15 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeNavigation();
 
         // Set current year
-        const currentYear = new Date().getFullYear();
         const yearElement = document.getElementById('year');
-        if (yearElement) yearElement.textContent = currentYear;
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
 
         // Set last modified date
         const lastModifiedElement = document.getElementById('lastModified');
         if (lastModifiedElement) {
-            const lastModifiedDate = document.lastModified;
-            lastModifiedElement.textContent = `Last Updated: ${lastModifiedDate}`;
+            lastModifiedElement.textContent = `Last Updated: ${document.lastModified}`;
         }
     } catch (error) {
         console.error('Page initialization error:', error);
