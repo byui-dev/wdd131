@@ -1,16 +1,51 @@
-// Game Reserves Data (can be imported or defined here)
+// Game Reserves Data 
 const reserves = [
     {
         id: 1,
         reserveName: "Dinokeng Game Reserve",
-        location: "Gauteng Province, South Africa"
+        location: "Gauteng Province, South Africa",
     },
     {
         id: 2,
-        reserveName: "Kruger National Park",
-        location: "Mpumalanga Province, South Africa"
+        reserveName: "Thula Thula Private Game Reserve",
+        location: "KwaZulu Natal Province, South Africa",
+    },
+    {
+        id: 3,
+        reserveName: "Shamwari Private Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+        
+    },
+    {
+        id: 4,
+        reserveName: "Kariega Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+    },
+    {
+        id: 5,
+        reserveName: "Amakhala Game Reserve",
+        location: "Eastern Cape Province, South Africa",
+    },
+    {
+        id: 6,
+        reserveName: "Kololo Game Reserve",
+        location: "Limpopo Province, South Africa",
+    },
+    {
+        id: 7,
+        reserveName: "Imfolozi Game Reserve",
+        location: "KwaZulu Natal Province, South Africa",
+    },
+    {
+        id: 8,
+        reserveName: "Pilanesberg National Park",
+        location: "North West Province, South Africa",
+    },
+    {
+        id: 9,
+        reserveName: "Madikwe Game Reserve",
+        location: "North West Province, South Africa",
     }
-    // Add more reserves as needed
 ];
 
 // Populate Reserve Dropdown
