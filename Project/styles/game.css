@@ -8,10 +8,11 @@ body {
 
 /* Header Styling */
 header {
-  background-color: #004d00;
+  background-color: #B7B6C2;
   padding: 20px;
   text-align: center;
   color: white;
+  
 }
 
 header h1 {
@@ -21,7 +22,7 @@ header h1 {
 
 /* Footer Styling */
 footer {
-  background-color: #004d00;
+  background-color: #B7B6C2;
   padding: 10px;
   text-align: center;
   color: white;
@@ -55,7 +56,7 @@ footer {
 }
 
 /* Reserve Cards Container */
-#cardContainer {
+#cardContainers {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -97,16 +98,22 @@ footer {
 }
 
 /* Navigation Links */
-nav ul li a {
-  text-decoration: none;
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
   color: #004d00;
-  padding: 10px 20px;
-  display: inline-block;
-  border-radius: 5px;
+}
+
+nav ul li {
+  margin: 10px 0;
 }
 
 nav ul li a:hover, nav ul li a.active {
-  background-color: #004d00;
+  background-color: 
   color: white;
 }
 

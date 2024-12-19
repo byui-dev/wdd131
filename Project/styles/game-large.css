@@ -8,9 +8,9 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #004d00;
+    background-color: #B7B6C2;
     padding: 20px;
-    text-align: center;
+    align-items: start; ;
     color: white;
 }
 
@@ -21,7 +21,7 @@ header h1 {
 
 /* Footer Styling */
 footer {
-    background-color: #004d00;
+    background-color: #B7B6C2;
     padding: 10px;
     text-align: center;
     color: white;
@@ -55,7 +55,7 @@ footer {
 }
 
 /* Reserve Cards Container */
-#cardContainer {
+#cardContainers {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -105,29 +105,34 @@ footer {
     white-space: nowrap;
 }
 
-/* Navigation Links */
-nav ul li a {
-    text-decoration: none;
-    color: #004d00;
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: #004d00;
-    color: white;
-}
-
-nav ul li a:focus {
-    outline: 2px solid #fff;
-    background-color: #006400;
-}
-
 /* Responsive Design */
 @media screen and (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #007bff;
+    }
+
+    nav ul li a.active {
+        color: #007bff;
+        border-bottom: 2px solid #007bff;
+    }
+    
     .hero-content {
         flex-direction: row;
         justify-content: space-between;

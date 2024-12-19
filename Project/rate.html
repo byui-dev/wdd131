@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Our Game Reserve Service</title>
+    <link rel="stylesheet" href="styles/forms.css">
+    <script src="forms.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Rate Our Service</h1>
+    </header>
+
+    <main>
+        <form method="get" action="reviews.html" class="form-container">
+            <fieldset>
+                <legend>Game Reserve Details</legend>
+                <label for="reserve">Name of Game Reserve</label>
+                <select name="reserve" id="reserve" required>
+                    <option value="" disabled selected>Select a Game Reserve</option>
+                    <!-- Populated dynamically by JavaScript -->
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Rate Us</legend>
+                <label for="stars">Overall Rating</label>
+                <div class="stars">
+                    <!-- Radio buttons with labels for each star -->
+                    <div class="star-container">
+                        <input type="radio" id="one-star" name="stars" value="1" required>
+                        <label for="one-star">★</label>
+                    </div>
+                    <div class="star-container">
+                        <input type="radio" id="two-stars" name="stars" value="2" required>
+                        <label for="two-stars">★★</label>
+                    </div>
+                    <div class="star-container">
+                        <input type="radio" id="three-stars" name="stars" value="3" required>
+                        <label for="three-stars">★★★</label>
+                    </div>
+                    <div class="star-container">
+                        <input type="radio" id="four-stars" name="stars" value="4" required>
+                        <label for="four-stars">★★★★</label>
+                    </div>
+                    <div class="star-container">
+                        <input type="radio" id="five-stars" name="stars" value="5" required>
+                        <label for="five-stars">★★★★★</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Visit Details</legend>
+                <label for="visit-date">Date of Visit</label>
+                <input type="date" id="visit-date" name="visitDate" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Highlights</legend>
+                <p>What did you enjoy the most? (Select all that apply)</p>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="location" name="highlights" value="location">
+                        <label for="location">Location</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="accessibility" name="highlights" value="accessibility">
+                        <label for="accessibility">Accessibility</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="accommodation" name="highlights" value="accommodation">
+                        <label for="accommodation">Accommodation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="game-drive" name="highlights" value="gameDrive">
+                        <label for="game-drive">Game Drive</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Feedback</legend>
+                <label for="review">Write a Review (Optional)</label>
+                <textarea id="review" name="review" rows="4" placeholder="Share your experience..."></textarea>
+
+                <label for="name">Your Name (Optional)</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
+            </fieldset>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Obakeng Kennedy Diphala, South Africa</p>
+        <p id="last-modified"></p>
+    </footer>
+</body>
+</html>
