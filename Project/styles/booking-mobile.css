@@ -14,7 +14,7 @@ body {
 
 /* Header Styles*/
 header {
-    background-color: ;#B7B6C2
+    background-color: #8AAA79;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -87,7 +87,7 @@ button:hover {
 /* Footer Styles*/
 footer {
     text-align: center;
-    background-color: #B7B6C2;
+    background-color: #8AAA79;
     color: white;
     padding: 1rem;
 }
